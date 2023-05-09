@@ -1,6 +1,5 @@
 package com.example.workoutapp
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerViewAdapter(private val dailyLogs: MutableList<DailyLog>) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(){
+class HomePageRecyclerViewAdapter(private val dailyLogs: MutableList<DailyLog>) : RecyclerView.Adapter<HomePageRecyclerViewAdapter.ViewHolder>(){
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val dateTextView: TextView = itemView.findViewById(R.id.title)
@@ -25,7 +24,7 @@ class RecyclerViewAdapter(private val dailyLogs: MutableList<DailyLog>) : Recycl
         return ViewHolder(contentView)
     }
 
-    override fun onBindViewHolder(holder: RecyclerViewAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: HomePageRecyclerViewAdapter.ViewHolder, position: Int) {
         val dailyLog: DailyLog = dailyLogs[position]
 
         val titleTextView = holder.dateTextView

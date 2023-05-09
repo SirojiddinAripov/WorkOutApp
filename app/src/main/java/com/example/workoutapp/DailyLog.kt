@@ -1,17 +1,12 @@
 package com.example.workoutapp
 
-import android.graphics.Picture
-import android.media.Rating
-import java.util.Date
+import android.graphics.drawable.Drawable
 
 class DailyLog(
+    val date: String,
+    val time: String,
+    val dayRating: Int,
+    val picture: Drawable?,
     val title: String,
-    var description: String
+    val description: String
 )
-//class DailyLog(
-//    date: Date,
-//    dayRating: Rating,
-//    picture: Picture,
-//    title: String,
-//    description: String
-//)
