@@ -17,6 +17,7 @@ import com.example.workoutapp.R
 import com.example.workoutapp.HomePageRecyclerViewAdapter
 import java.time.LocalTime
 import java.util.Calendar
+import kotlin.math.ceil
 
 class HomeFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -48,8 +49,8 @@ class HomeFragment : Fragment() {
 
     private fun getCurrentDate(): String {
         val calendar = Calendar.getInstance()
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
-        val month = calendar.get(Calendar.MONTH) + 1
+        val day: String = String.format("%02d", calendar.get(Calendar.DAY_OF_MONTH))
+        val month: String = String.format("%02d", calendar.get(Calendar.MONTH)+1)
         val year = calendar.get(Calendar.YEAR)
         return "$day/$month/$year"
     }
