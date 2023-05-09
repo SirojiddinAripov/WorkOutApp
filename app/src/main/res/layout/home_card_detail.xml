@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
-                android:paddingStart="10dp"
+                android:paddingHorizontal="10dp"
                 android:paddingBottom="5dp"
                 android:gravity="center_vertical"
                 android:orientation="vertical">
@@ -62,8 +62,6 @@
                     android:text="this isn't right..."
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:paddingEnd="10dp"
-                    android:gravity="right"
                     android:textSize="15sp"
                     tools:ignore="HardcodedText" />
             </RelativeLayout>
@@ -106,7 +104,6 @@
                     android:id="@+id/rating_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="left"
                     android:layout_marginStart="20dp"
                     android:layout_alignParentEnd="true">
 
@@ -137,7 +134,6 @@
                 android:id="@+id/description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/rating_head"
                 android:paddingHorizontal="10dp"
                 android:text="this isn't right"
                 android:textAlignment="viewEnd"
