@@ -29,6 +29,14 @@
                 <category android:name="android.intent.category.HOME" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".HomeCardDetail"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.TAB" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

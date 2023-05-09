@@ -1,6 +1,7 @@
 package com.example.workoutapp
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -40,8 +41,12 @@ class HomePageRecyclerViewAdapter(private val dailyLogs: MutableList<DailyLog>) 
         dateTextView.text = dailyLog.date
 
         val imageButtonView = holder.imageButton
-        imageButtonView.setOnClickListener {
-             Log.v("Image Click: ", "Hello I am ImageView at $position")
+        
+        imageButtonView.setOnClickListener{
+            val context = holder.itemView.context
+            val intent = Intent(context , HomeCardDetail::class.java)
+            intent.putExtra("title", dailyLog.title)
+            context.startActivity(intent)
         }
 
         holder.ratingView.text = "${dailyLog.dayRating}/10"
