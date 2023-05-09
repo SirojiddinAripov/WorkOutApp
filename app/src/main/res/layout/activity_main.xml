@@ -7,7 +7,10 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical">
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorSecondary" />
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager2"
         android:orientation="horizontal"
@@ -15,17 +18,20 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent">
     </androidx.viewpager2.widget.ViewPager2>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorSecondary" />
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         app:tabMode="fixed"
         app:tabGravity="fill"
-        app:tabIconTint="@color/white"
-        app:tabTextColor="@color/white"
-        app:tabIndicatorColor="@color/colorPrimary"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextColor="@color/colorSecondary"
+        app:tabIndicatorColor="@color/colorSecondary"
         app:tabIndicatorGravity="stretch"
         app:tabIndicatorAnimationMode="elastic"
-        app:tabBackground="@color/black"
+        app:tabBackground="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </com.google.android.material.tabs.TabLayout>

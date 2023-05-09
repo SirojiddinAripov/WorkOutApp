@@ -2,7 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/home_icon"
-        android:drawable="@drawable/homee_white"
+        android:drawable="@drawable/homee"
         android:width="64dp"
         android:height="64dp"
     />
