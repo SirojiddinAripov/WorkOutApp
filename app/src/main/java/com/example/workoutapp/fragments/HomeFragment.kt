@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,7 +15,6 @@ import com.example.workoutapp.R
 import com.example.workoutapp.HomePageRecyclerViewAdapter
 import java.time.LocalTime
 import java.util.Calendar
-import kotlin.math.ceil
 
 class HomeFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -36,7 +33,7 @@ class HomeFragment : Fragment() {
                     getCurrentDate(),
                     getCurrentTime(),
                     (1..10).random(),
-                    context?.let { AppCompatResources.getDrawable(it, R.drawable.work_out_man) },
+                    R.drawable.work_out_man,
                     "Title: $i",
                     "Description: $i"))
         }

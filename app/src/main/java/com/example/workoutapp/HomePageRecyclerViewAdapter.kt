@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import java.io.Serializable
 
 class HomePageRecyclerViewAdapter(private val dailyLogs: MutableList<DailyLog>) : RecyclerView.Adapter<HomePageRecyclerViewAdapter.ViewHolder>(){
 
@@ -41,11 +42,11 @@ class HomePageRecyclerViewAdapter(private val dailyLogs: MutableList<DailyLog>) 
         dateTextView.text = dailyLog.date
 
         val imageButtonView = holder.imageButton
-        
+        imageButtonView.setImageResource(dailyLog.imageSrcId)
         imageButtonView.setOnClickListener{
             val context = holder.itemView.context
             val intent = Intent(context , HomeCardDetail::class.java)
-            intent.putExtra("title", dailyLog.title)
+            intent.putExtra("object", dailyLog)
             context.startActivity(intent)
         }
 
