@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
+                viewPager.currentItem = tab.position
                 tab.icon?.setTint(Color.WHITE)
                 when(tab.position){
                     0 -> { supportActionBar?.title = Html.fromHtml("<font color='$secondaryColorHex'>Home Page</font>")}
@@ -55,6 +56,7 @@ class MainActivity : AppCompatActivity() {
                 tab.icon?.setTint(ContextCompat.getColor(this@MainActivity, R.color.colorSecondary))
             }
             override fun onTabReselected(tab: TabLayout.Tab) {
+
             }
         })
 
