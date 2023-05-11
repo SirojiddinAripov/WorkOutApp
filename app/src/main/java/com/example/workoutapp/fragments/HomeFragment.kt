@@ -1,18 +1,21 @@
 package com.example.workoutapp.fragments
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.workoutapp.CreatePost
 import com.example.workoutapp.DailyLog
+import com.example.workoutapp.HomeCardDetail
 import com.example.workoutapp.R
 import com.example.workoutapp.HomePageRecyclerViewAdapter
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.time.LocalTime
 import java.util.Calendar
 
@@ -37,11 +40,16 @@ class HomeFragment : Fragment() {
                     "Title: $i",
                     "Description: $i"))
         }
-        Toast.makeText(activity, dailyLogsList[10].description, Toast.LENGTH_SHORT).show()
         val adapter = HomePageRecyclerViewAdapter(dailyLogsList)
 
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapter
+
+        val createPostButton : FloatingActionButton = view.findViewById(R.id.create_post)
+        createPostButton.setOnClickListener {
+            val intent = Intent(activity, CreatePost::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun getCurrentDate(): String {

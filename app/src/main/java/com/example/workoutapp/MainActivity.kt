@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         val secondaryColorHex: String = String.format("#%06X", 0xFFFFFF and ContextCompat.getColor(this@MainActivity, R.color.colorSecondary))
         Log.v("54564:","<font color='#$secondaryColorHex'>Home Page</font>")
         intent.getStringExtra("Folder-Location")
-        supportActionBar?.title = Html.fromHtml("<font color='$secondaryColorHex'>Home Page</font>")
+        supportActionBar?.title = Html.fromHtml("<bold><font color='$secondaryColorHex'>Home Page</font></bold>")
         supportActionBar?.setBackgroundDrawable(ContextCompat.getDrawable(this@MainActivity, R.color.white))
 
         viewPager = findViewById(R.id.viewPager2)
@@ -47,9 +47,9 @@ class MainActivity : AppCompatActivity() {
                 viewPager.currentItem = tab.position
                 tab.icon?.setTint(Color.WHITE)
                 when(tab.position){
-                    0 -> { supportActionBar?.title = Html.fromHtml("<font color='$secondaryColorHex'>Home Page</font>")}
-                    1 -> { supportActionBar?.title = Html.fromHtml("<font color='$secondaryColorHex'>Workout List</font>")}
-                    2 -> { supportActionBar?.title = Html.fromHtml("<font color='$secondaryColorHex'>Diet Menu</font>")}
+                    0 -> { supportActionBar?.title = Html.fromHtml("<bold><font color='$secondaryColorHex'>Home Page</font></bold>")}
+                    1 -> { supportActionBar?.title = Html.fromHtml("<bold><font color='$secondaryColorHex'>Workout List</font></bold>")}
+                    2 -> { supportActionBar?.title = Html.fromHtml("<bold><font color='$secondaryColorHex'>Diet Menu</font></bold>")}
                 }
             }
             override fun onTabUnselected(tab: TabLayout.Tab) {

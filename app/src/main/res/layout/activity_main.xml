@@ -9,7 +9,7 @@
     android:orientation="vertical">
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="2dp"
         android:background="@color/colorSecondary" />
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager2"
@@ -20,7 +20,7 @@
     </androidx.viewpager2.widget.ViewPager2>
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="2dp"
         android:background="@color/colorSecondary" />
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
