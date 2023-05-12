@@ -43,16 +43,10 @@ class MainActivity : AppCompatActivity() {
 
         navView.setNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.profile -> {
-                    Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                R.id.settings -> {
-                    Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                else -> false
+                R.id.profile -> Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
+                R.id.settings -> Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
             }
+            true
         }
 
 

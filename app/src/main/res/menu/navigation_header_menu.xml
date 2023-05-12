@@ -4,10 +4,13 @@
     tools:ignore="MissingDefaultResource">
     <item
         android:id="@+id/profile"
+        android:enabled="true"
         android:title="Profile"
      />
     <item
         android:id="@+id/settings"
+        android:enabled="true"
+
         android:title="Settings"
         />
 </menu>
