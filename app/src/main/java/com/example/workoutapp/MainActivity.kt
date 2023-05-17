@@ -1,12 +1,11 @@
 package com.example.workoutapp
 
-import android.content.Context
+import com.example.workoutapp.folderName as folderName
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Html
 import android.util.Log
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -22,14 +21,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var navView: NavigationView
     private lateinit var drawerLayout: DrawerLayout
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val secondaryColorHex: String = String.format("#%06X", 0xFFFFFF and ContextCompat.getColor(this@MainActivity, R.color.colorSecondary))
-        Log.v("54564:","<font color='#$secondaryColorHex'>Home Page</font>")
-        intent.getStringExtra("Folder-Location")
+        folderName = intent.getStringExtra("Folder-Location").toString()
         supportActionBar?.title = Html.fromHtml("<bold><font color='$secondaryColorHex'>Home Page</font></bold>")
         supportActionBar?.setBackgroundDrawable(ContextCompat.getDrawable(this@MainActivity, R.color.white))
 

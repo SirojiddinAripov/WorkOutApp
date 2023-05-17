@@ -1,27 +1,23 @@
 package com.example.workoutapp
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
-import android.text.Editable
-import android.text.InputFilter
-import android.text.TextWatcher
 import android.util.Log
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doOnTextChanged
+import java.time.LocalTime
 import java.util.Calendar
-import java.util.Date
 
 class CreatePost: AppCompatActivity() {
     private lateinit var date: TextView
@@ -29,7 +25,8 @@ class CreatePost: AppCompatActivity() {
     private lateinit var title: EditText
     private lateinit var description: EditText
     private lateinit var rating: EditText
-    private lateinit var imageDrawable : Drawable
+    private lateinit var imageDrawable : Uri
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_post_layout)
@@ -55,7 +52,23 @@ class CreatePost: AppCompatActivity() {
         title = findViewById(R.id.edit_title)
         description = findViewById(R.id.edit_description)
 
-
+        findViewById<Button>(R.id.cancel_btn).setOnClickListener{
+            this.finish()
+        }
+        findViewById<Button>(R.id.create_btn).setOnClickListener {
+            dailyLogsList.add(
+                DailyLog(
+                    date.text.toString(),
+                    getCurrentTime(),
+                    rating.text.toString().toInt(),
+                    imageDrawable,
+                    title.text.toString(),
+                    description.text.toString()
+            ))
+            Log.v("List len:", dailyLogsList.size.toString())
+            HomePageRecyclerViewAdapter(dailyLogsList)
+            this.finish()
+        }
     }
     private fun getCurrentDate(): String {
         val calendar = Calendar.getInstance()
@@ -63,6 +76,13 @@ class CreatePost: AppCompatActivity() {
         val month: String = String.format("%02d", calendar.get(Calendar.MONTH)+1)
         val year = calendar.get(Calendar.YEAR)
         return "$day/$month/$year"
+    }
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun getCurrentTime(): String {
+        val time = LocalTime.now()
+        val hour = time.hour
+        val minutes = time.minute
+        return "$hour:$minutes"
     }
 
     private val PICK_IMAGE_REQUEST = 2
@@ -76,10 +96,11 @@ class CreatePost: AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null){
             val selectedImageURI: Uri? = data.data
-            val inputStream = selectedImageURI?.let { contentResolver.openInputStream(it) }
-            val bitmap = BitmapFactory.decodeStream(inputStream)
-            imageDrawable = BitmapDrawable(resources, bitmap)
-            imageButton.setImageDrawable(imageDrawable)
+            if (selectedImageURI != null) {
+                imageDrawable = selectedImageURI
+            }
+            imageButton.setImageURI(selectedImageURI)
         }
     }
+
 }

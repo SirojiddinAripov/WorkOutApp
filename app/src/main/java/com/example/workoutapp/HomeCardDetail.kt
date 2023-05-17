@@ -29,7 +29,9 @@ class HomeCardDetail: AppCompatActivity() {
         ratingView.text = "${dailyLog?.dayRating}/10"
 
         imageButton = findViewById(R.id.image_button)
-        dailyLog?.imageSrcId?.let { imageButton.setImageResource(it) }
+        if (dailyLog != null) {
+            imageButton.setImageURI(dailyLog.imageSrcUri)
+        }
 
         dateView = findViewById(R.id.date)
         dateView.text = dailyLog?.date

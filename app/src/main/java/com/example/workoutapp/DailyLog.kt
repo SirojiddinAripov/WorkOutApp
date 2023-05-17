@@ -8,7 +8,7 @@ class DailyLog(
     val date: String?,
     val time: String?,
     val dayRating: Int,
-    val imageSrcId: Int,
+    val imageSrcUri: Uri,
     val title: String?,
     val description: String?
 ): Parcelable {
@@ -16,7 +16,7 @@ class DailyLog(
         parcel.readString(),
         parcel.readString(),
         parcel.readInt(),
-        parcel.readInt(),
+        parcel.readParcelable(Uri::class.java.classLoader)!!,
         parcel.readString(),
         parcel.readString()
     ) {
@@ -26,7 +26,7 @@ class DailyLog(
         parcel.writeString(date)
         parcel.writeString(time)
         parcel.writeInt(dayRating)
-        parcel.writeInt(imageSrcId)
+        parcel.writeParcelable(imageSrcUri, flags)
         parcel.writeString(title)
         parcel.writeString(description)
     }
