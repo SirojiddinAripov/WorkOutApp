@@ -8,18 +8,6 @@
     android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.google.android.material.navigation.NavigationView
-        android:background="@color/off_white"
-        app:itemTextColor="@color/colorPrimary"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:id="@+id/nav_view"
-        app:itemVerticalPadding="5dp"
-        app:itemTextAppearance="@style/NavigationTextStyle"
-        app:headerLayout="@layout/navigation_header"
-        app:menu="@menu/navigation_header_menu"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -54,4 +42,17 @@
             android:layout_height="wrap_content">
         </com.google.android.material.tabs.TabLayout>
     </LinearLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:background="@color/off_white"
+        app:itemTextColor="@color/colorPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:id="@+id/nav_view"
+        app:itemVerticalPadding="5dp"
+        app:itemBackground="@drawable/nav_menu_item_divider"
+        app:itemTextAppearance="@style/NavigationTextStyle"
+        app:headerLayout="@layout/navigation_header"
+        app:menu="@menu/navigation_header_menu"
+        android:fitsSystemWindows="true"/>
 </androidx.drawerlayout.widget.DrawerLayout>

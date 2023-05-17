@@ -41,12 +41,19 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        navView.setNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.profile -> Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
-                R.id.settings -> Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
+        navView.setNavigationItemSelectedListener { menuItem->
+            menuItem.isChecked = true
+            drawerLayout.closeDrawers()
+
+            when (menuItem.itemId) {
+                R.id.profile -> {
+                    true
+                }
+                R.id.settings -> {
+                    true
+                }
+                else -> false
             }
-            true
         }
 
 
