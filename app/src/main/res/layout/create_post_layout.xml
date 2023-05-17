@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".CreatePost"
     android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -66,7 +70,7 @@
                     tools:ignore="HardcodedText" />
             </RelativeLayout>
             <ImageButton
-                android:id="@+id/image_button"
+                android:id="@+id/edit_image_button"
                 android:contentDescription="@string/appbar_scrolling_view_behavior"
                 android:src="@drawable/dumb_bell_rack_2"
                 android:scaleType="fitCenter"
@@ -97,8 +101,9 @@
                         android:textColor="@color/colorPrimary"
                         android:textColorHint="@color/colorSecondary"
                         android:textColorLink="@color/colorPrimary"
-                        android:textSize="20sp"
+                        android:textSize="25sp"
                         android:textStyle="bold"
+                        android:maxLength="17"
                         tools:ignore="HardcodedText" />
                 </RelativeLayout>
 
@@ -106,6 +111,7 @@
                     android:id="@+id/rating_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
                     android:layout_marginStart="20dp"
                     android:layout_alignParentEnd="true">
 
@@ -113,27 +119,44 @@
                         android:id="@+id/rating_head"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="User Rating"
+                        android:layout_alignParentEnd="true"
+                        android:text="Personal Score"
                         android:textColor="@color/colorPrimary"
                         android:textSize="13sp"
                         android:textStyle="bold"
                         tools:ignore="HardcodedText" />
-
-                    <EditText
-                        android:id="@+id/edit_rating"
+                    <RelativeLayout
+                        android:id="@+id/rating"
+                        android:layout_below="@id/rating_head"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/rating_head"
-                        android:layout_centerHorizontal="true"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        android:hint="rating/10"
-                        android:textAlignment="viewEnd"
-                        android:textColor="@color/colorSecondary"
-                        android:textColorHint="@color/colorSecondary"
-                        android:textColorLink="@color/colorPrimary"
-                        android:textSize="20sp"
-                        tools:ignore="HardcodedText" />
+                        android:layout_alignParentEnd="true">
+                        <EditText
+                            android:id="@+id/edit_rating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@id/ten"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:hint="\?"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorSecondary"
+                            android:textColorHint="@color/colorSecondary"
+                            android:textColorLink="@color/colorPrimary"
+                            android:textSize="20sp"
+                            tools:ignore="HardcodedText" />
+                        <TextView
+                            android:id="@+id/ten"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:text="/10"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText" />
+                    </RelativeLayout>
                 </RelativeLayout>
             </RelativeLayout>
 
@@ -143,12 +166,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:hint="Enter post description"
-                android:textAlignment="viewEnd"
+                android:textAlignment="textStart"
                 android:textColor="@color/colorSecondary"
                 android:textColorHint="@color/colorSecondary"
                 android:textColorLink="@color/colorPrimary"
                 android:textSize="20sp"
+                android:maxLength="250"
                 tools:ignore="HardcodedText" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
