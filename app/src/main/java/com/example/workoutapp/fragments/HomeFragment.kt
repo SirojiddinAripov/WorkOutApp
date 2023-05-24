@@ -37,7 +37,7 @@ class HomeFragment : Fragment() {
                         getCurrentDate(),
                         getCurrentTime(),
                         (1..10).random(),
-                        Uri.parse("nflerkjghfisu"),
+                        Uri.parse("nflerkjeeeghfisu"),
                         "Title: $i",
                         "Description: $i"
                     )
